@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-
+import '../index.css'
 // components
 import Menu from './Menu';
 
-function Home() {
+function Home(props) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -22,6 +22,7 @@ function Home() {
            .then(json =>  {
                 setUsers(json);
                 console.log('json response', json);
+                props.history.push('/menu');
         });
     }
     
